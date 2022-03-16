@@ -1,0 +1,63 @@
+//문제2588
+package club01;
+import java.util.Scanner;
+
+public class club {
+	public static void main(String[] args) {
+		
+		int[] name=new int[3];
+		Scanner input = new Scanner(System.in);
+		int num1=input.nextInt();
+		int num2=input.nextInt();
+		int sum=0;
+		for(int i=0;i<3;i++) {
+			name[i] = num2 % 10;
+			num2/=10;
+			System.out.println(name[i]*num1);
+			int num3=(int)Math.pow(10,i);
+			if(i>=1) {
+				sum=sum+(name[i]*num1*num3);
+			}
+			else {
+				sum=name[i]*num1;
+			}
+		}
+		System.out.println(sum);
+	}
+}
+
+//문제10430
+package club01;
+import java.util.Scanner;
+
+public class club01 {
+	public static void main(String[] args) {
+		
+		Scanner input=new Scanner(System.in);
+		int num1=input.nextInt();
+		int num2=input.nextInt();
+		int num3=input.nextInt();
+		
+		System.out.println((num1+num2)%num3);
+		System.out.println(((num1%num3)+(num2%num3))%num3);
+		System.out.println((num1*num2)%num3);
+		System.out.println(((num1%num3)*(num2%num3))%num3);
+	}
+}
+//문제2884
+package club02;
+import java.util.Scanner;
+
+public class club02 {
+	public static void main(String[] args) {
+		
+		Scanner input=new Scanner(System.in);
+		int hour1=input.nextInt();
+		int sec1=input.nextInt();
+		int num=0;
+		
+		num=(hour1*60+sec1)-45;
+		System.out.print(num/60+" "+num%60);
+	}
+}
+//
