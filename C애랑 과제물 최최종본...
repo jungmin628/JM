@@ -1,0 +1,122 @@
+//백준에서 정답으로 받은 코드만 작성한 최최종본입니다...
+//과제1번
+package club01;
+import java.util.Scanner;
+
+public class club {
+	public static void main(String[] args) {
+		
+		int[] name=new int[3];
+		Scanner input = new Scanner(System.in);
+		int num1=input.nextInt();
+		int num2=input.nextInt();
+		int sum=0;
+		for(int i=0;i<3;i++) {
+			name[i] = num2 % 10;
+			num2/=10;
+			System.out.println(name[i]*num1);
+			int num3=(int)Math.pow(10,i);
+			if(i>=1) {
+				sum=sum+(name[i]*num1*num3);
+			}
+			else {
+				sum=name[i]*num1;
+			}
+		}
+		System.out.println(sum);
+	}
+}
+//과제2번
+package club01;
+import java.util.Scanner;
+
+public class club01 {
+	public static void main(String[] args) {
+		
+		Scanner input=new Scanner(System.in);
+		int num1=input.nextInt();
+		int num2=input.nextInt();
+		int num3=input.nextInt();
+		
+		System.out.println((num1+num2)%num3);
+		System.out.println(((num1%num3)+(num2%num3))%num3);
+		System.out.println((num1*num2)%num3);
+		System.out.println(((num1%num3)*(num2%num3))%num3);
+	}
+}
+//과제3번
+package club02;
+import java.util.Scanner;
+
+public class club02 {
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		int hour1=input.nextInt();
+		int sec1=input.nextInt();
+		int num=0;
+		num=(hour1*60+sec1)-45;
+		if(num<0) {
+			num=1440+num;
+			System.out.print(num/60+" "+num%60);
+		}
+		else {
+			System.out.print(num/60+" "+num%60);
+		}
+	}
+}
+//과제4번
+package club03;
+import java.util.Scanner;
+
+public class club03 {
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		int hour=input.nextInt();
+		int min=input.nextInt();
+		int sec=input.nextInt();
+		int num=input.nextInt();
+		
+		int hour2=0;
+		int min2=0;
+		int sec2=0;
+		int num2=0;
+		
+		if(num>=3600) {
+			num2=num%3600;
+			sec2=sec+(num2%60);
+			if(sec2>=60) {
+				min2=sec2/60;
+				sec2=sec2%60;
+			}
+			min2=min2+min+(num2/60);
+			if(min2>=60) {
+				hour2=min2/60;
+				min2=min2%60;
+			}
+			hour2=(num/3600)+hour2+hour;
+			if(hour2>=24) {
+				hour2=hour2%24;
+			}
+			System.out.print(hour2+" "+min2+" "+sec2);
+		}
+		else {
+			sec2=(num%60)+sec;
+			if(sec2>=60) {
+				min2=sec2/60;
+				sec2=sec2%60;
+			}
+			min2=min2+(num/60)+min;
+			if(min2>=60) {
+				hour2=(min2/60)+hour;
+				min2=min2%60;
+				if(hour2>=24) {
+					hour2=hour2%24;
+				}
+				System.out.print(hour2+" "+min2+" "+sec2);
+			}
+			else {
+				System.out.print(hour+" "+min2+" "+sec2);
+			}
+		}
+	}
+}
